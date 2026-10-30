@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    environment:
+      APP_MODE: production
+      BIND: 127.0.0.1
+    ports: ["18082:8080"]
+  dashboard:
+    build: .
+    command: ["python", "dashboard.py"]
+    environment:
+      API_URL: http://localhost:9999
+    ports: ["19082:9000"]
