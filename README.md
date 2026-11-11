@@ -1,14 +1,14 @@
 # service-routing-repair
 
-Intentionally broken DevOps Foundation Module 4 starter. No solved implementation or completed review answers are supplied. Diagnose and repair only the assessment tasks.
+CampusBoard containers start, but host API and dashboard requests fail. Repair listener and internal API address settings without changing ports or service responses.
 
-## Preparation
+## Prerequisites
 
-Fork or clone https://github.com/kalviumcommunity/service-routing-repair before assessment. Fork ownership is not graded. Use free local Docker Engine/Compose, Git and POSIX shell (Linux/macOS or prepared WSL). Docker Desktop subject to its license; Linux Docker Engine is sufficient. Pull python:3.12-slim before assessment. Reserve exercise ports only. Preparation/download delays excluded. No cloud account, billing, registry login, real credentials, paid tools or Kubernetes needed.
+Git, Docker Engine and POSIX shell (Linux/macOS or WSL with Docker integration). Compose v2 required for Compose commands; curl required for host HTTP checks. Docker must be running; internet access needed to download python:3.12-slim. Reserve documented host ports. Docker Desktop is subject to its license; Linux Docker Engine is sufficient. No cloud account, billing, registry login, real credentials, Kubernetes cluster or paid tools needed. Fork or clone this starter and run commands from repository root.
 
 ## Allowed edits
 
-compose.yaml (BIND and API_URL only), routing-review.md. Preserve all other source, routes, ports, fixtures and checks. No failure suppression or fabricated output. Existing run.sh tolerates absence of its old exercise container only; that cleanup is not an application-validation bypass.
+compose.yaml (BIND and API_URL only), routing-review.md. Preserve all other source, routes, ports, fixtures and checks. No failure suppression or fabricated output.
 
 ## Required behaviour and commands
 
@@ -27,7 +27,3 @@ docker compose port api 8080
 docker compose port dashboard 9000
 ```
 Use docker compose exec -T SERVICE python -c with urllib.request for inside-container requests. Wait for listener startup before HTTP checks. Cleanup: docker compose down.
-
-## Evidence and submission
-
-Follow assessment's three tasks. One PDF, three labelled task sections, at least one real terminal screenshot per task, requested findings and cause/fix/result captions. Include complete corrected diff of permitted files once. Show original failures and final checks only as requested by each task. Grade only those tasks and evidence (6 + 7 + 7 = 20). Repository/fork URLs, fork ownership, branch names and submission commit hashes are not required or graded. Technical image IDs remain required where tasks ask for them. Standalone instructor evidence is valid under the same technical criteria. Written findings are manually assessed; local evidence does not prove Cloud Run deployment. No PR, video or ZIP. Cleanup only exercise containers; never expose real credentials.
